@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Header from '../components/Header';
-import PokemonList from '../components/PokemonList';
+import Header from '../../components/header/header';
+import PokemonList from '../../components/pokemon_list/pokemon_list';
 
 const HomeScreen = ({navigation}) => {
 

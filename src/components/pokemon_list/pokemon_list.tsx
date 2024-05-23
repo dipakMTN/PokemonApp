@@ -2,15 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TouchableOpacity,
   TextInput,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {fetchPokemons, setPageOffset} from '../store/pokemonSlice';
-import {RootState} from '../store/store';
-import PokemonListView from './PokemonListView';
-import PokemonGridView from './PokemonGridView';
+import {fetchPokemons, setPageOffset} from '../../store/pokemonSlice';
+import {RootState} from '../../store/store';
+import PokemonListView from './list/pokemon_list_view';
+import PokemonGridView from './grid/pokemon_grid_view';
+import { styles } from './pokemon_list.styles';
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -88,27 +88,4 @@ const PokemonList = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  searchBar: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    margin: 10,
-  },
-  viewToggle: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginVertical: 16,
-  },
-  selected: {
-    fontWeight: 'bold',
-    color: '#007AFF',
-  },
-  unselected: {
-    color: '#007AFF',
-  },
-});
-
-export default PokemonList;
+export default PokemonList

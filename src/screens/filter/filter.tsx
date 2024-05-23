@@ -1,12 +1,17 @@
 import React, { useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPokemons, fetchTypes, setSelectedType } from '../store/pokemonSlice';
-import { RootState } from '../store/store';
-import Header from '../components/Header';
-import CustomCheckbox from '../components/CustomCheckbox';
+import { fetchPokemons, fetchTypes, setSelectedType } from '../../store/pokemonSlice';
+import { RootState } from '../../store/store';
+import Header from '../../components/header/header';
+import CustomCheckbox from '../../components/checkbox/checkbox';
+import { styles } from './filter.styles';
+import { useFilterController } from './filter.controller';
 
-const FilterScreen = ({ navigation }) => {
+const FilterScreen = () => {
+
+  const {handleCancelPressed} = useFilterController();
+
   const dispatch = useDispatch();
   const { types, selectedType } = useSelector((state: RootState) => state.pokemon);
 
@@ -17,10 +22,6 @@ const FilterScreen = ({ navigation }) => {
   const handleSelectType = (type: string) => {
     dispatch(setSelectedType(type));
     dispatch(fetchPokemons());
-  };
-
-  const handleCancelPressed = () => {
-    navigation.goBack();
   };
 
   return (
@@ -60,28 +61,5 @@ const FilterScreen = ({ navigation }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  flatListContainer: {
-    paddingHorizontal: 16,
-  },
-  typeItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginVertical: 8,
-  },
-  selected: {
-    fontWeight: 'bold',
-    color: '#007AFF',
-    paddingVertical: 8,
-  },
-  unselected: {
-    paddingVertical: 8,
-    color: '#000',
-  },
-});
 
 export default FilterScreen;
