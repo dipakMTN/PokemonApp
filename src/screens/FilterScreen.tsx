@@ -1,18 +1,14 @@
-import React, {useEffect} from 'react';
-import {View, Text, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {
-  fetchPokemons,
-  fetchTypes,
-  setSelectedType,
-} from '../store/pokemonSlice';
+import React, { useEffect } from 'react';
+import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPokemons, fetchTypes, setSelectedType } from '../store/pokemonSlice';
+import { RootState } from '../store/store';
 import Header from '../components/Header';
+import CustomCheckbox from '../components/CustomCheckbox';
 
-const FilterScreen = ({navigation}) => {
+const FilterScreen = ({ navigation }) => {
   const dispatch = useDispatch();
-  const {types, selectedType} = useSelector(
-    (state: RootState) => state.pokemon,
-  );
+  const { types, selectedType } = useSelector((state: RootState) => state.pokemon);
 
   useEffect(() => {
     dispatch(fetchTypes());
@@ -38,22 +34,24 @@ const FilterScreen = ({navigation}) => {
         data={types}
         style={styles.flatListContainer}
         keyExtractor={item => item.name}
-        renderItem={({item}) => (
-          <TouchableOpacity onPress={() => handleSelectType(item.name)}>
-            <Text
-              style={
-                item.name === selectedType ? styles.selected : styles.unselected
-              }>
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => handleSelectType(item.name)} style={styles.typeItem}>
+            <CustomCheckbox
+              isChecked={item.name === selectedType}
+              onPress={() => handleSelectType(item.name)}
+            />
+            <Text style={item.name === selectedType ? styles.selected : styles.unselected}>
               {item.name}
             </Text>
           </TouchableOpacity>
         )}
         ListHeaderComponent={
-          <TouchableOpacity onPress={() => handleSelectType('all')}>
-            <Text
-              style={
-                selectedType === 'all' ? styles.selected : styles.unselected
-              }>
+          <TouchableOpacity onPress={() => handleSelectType('all')} style={styles.typeItem}>
+            <CustomCheckbox
+              isChecked={selectedType === 'all'}
+              onPress={() => handleSelectType('all')}
+            />
+            <Text style={selectedType === 'all' ? styles.selected : styles.unselected}>
               All
             </Text>
           </TouchableOpacity>
@@ -70,10 +68,10 @@ const styles = StyleSheet.create({
   flatListContainer: {
     paddingHorizontal: 16,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 16,
+  typeItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 8,
   },
   selected: {
     fontWeight: 'bold',
