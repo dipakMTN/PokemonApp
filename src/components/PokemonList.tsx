@@ -13,8 +13,12 @@ const PokemonList = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
 
+  const [pageIndex, setPageIndex] = useState<number>(0)
+  const itemsPerPage = 20;
+
   useEffect(() => {
-    dispatch(fetchPokemons());
+    const params = {itemsPerPage, pageIndex}
+    dispatch(fetchPokemons(params));
   }, [dispatch]);
 
   useEffect(() => {
@@ -50,7 +54,8 @@ const PokemonList = () => {
         </TouchableOpacity>
       </View>
       {viewMode === 'list' ? (
-        <PokemonListView pokemons={filteredPokemons} />
+        <PokemonLi
+        stView pokemons={filteredPokemons} />
       ) : (
         <PokemonGridView pokemons={filteredPokemons} />
       )}

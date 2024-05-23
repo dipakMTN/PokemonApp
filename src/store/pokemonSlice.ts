@@ -17,10 +17,13 @@ const initialState: PokemonState = {
   selectedType: 'all'
 };
 
-export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons', async (_, { getState }: any) => {
+export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons', async (params: {
+  itemsPerPage: number,
+  pageIndex: number
+}, { getState }: any) => {
   const { selectedType } = getState().pokemon;
   if (selectedType === 'all') {
-    const data = await getPokemons();
+    const data = await getPokemons(params.itemsPerPage, params.pageIndex);
     return data.results;
   } else {
     const data = await getPokemonsByType(selectedType);
