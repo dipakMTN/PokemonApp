@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Header = ({ title, iconSymbol, onIconPress }) => {
   return (
     <View style={styles.header}>
       <Text style={styles.title}>{title}</Text>
       <TouchableOpacity onPress={onIconPress}>
-        <Text style={styles.filterIcon}>{iconSymbol}</Text>
+        <Icon name={iconSymbol} size={24} color="#000" />
       </TouchableOpacity>
     </View>
   );
@@ -24,10 +24,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000'
-  },
-  filterIcon: {
-    fontSize: 24,
+    color: '#000',
   },
 });
 

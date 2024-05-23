@@ -13,7 +13,7 @@ const HomeScreen = ({navigation}) => {
     <View style={styles.container}>
       <Header 
         title="Pokémon" 
-        iconSymbol="⚙️" 
+        iconSymbol="filter-list-alt" 
         onIconPress={handleFilterPress} 
       />
       <PokemonList />

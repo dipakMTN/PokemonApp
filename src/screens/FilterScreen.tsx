@@ -27,7 +27,7 @@ const FilterScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Header
         title="Filter By Type"
-        iconSymbol="✖️"
+        iconSymbol="close"
         onIconPress={handleCancelPressed}
       />
       <FlatList
