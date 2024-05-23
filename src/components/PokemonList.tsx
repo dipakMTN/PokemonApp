@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { View, FlatList, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPokemons } from '../store/pokemonSlice';
 import { RootState } from '../store/store';
+import PokemonListView from './PokemonListView';
+import PokemonGridView from './PokemonGridView';
 
 const PokemonList = () => {
   const dispatch = useDispatch();
@@ -47,18 +49,11 @@ const PokemonList = () => {
           <Text style={viewMode === 'grid' ? styles.selected : styles.unselected}>Grid View</Text>
         </TouchableOpacity>
       </View>
-      <FlatList
-        data={filteredPokemons}
-        numColumns={viewMode === 'grid' ? 2 : 1}
-        key={viewMode}
-        keyExtractor={(item) => item.name}
-        renderItem={({ item }) => (
-          <View style={styles.pokemonItem}>
-            {/* <Image source={{ uri: item.url }} style={styles.pokemonImage} /> */}
-            <Text style={styles.pokemonText}>{item.name}</Text>
-          </View>
-        )}
-      />
+      {viewMode === 'list' ? (
+        <PokemonListView pokemons={filteredPokemons} />
+      ) : (
+        <PokemonGridView pokemons={filteredPokemons} />
+      )}
     </View>
   );
 };
@@ -83,21 +78,6 @@ const styles = StyleSheet.create({
   },
   unselected: {
     color: '#007AFF',
-  },
-  pokemonItem: {
-    flex: 1,
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#f8f8f8',
-    alignItems: 'center',
-  },
-  pokemonText: {
-    color: '#000',
-  },
-  pokemonImage: {
-    width: 100,
-    height: 100,
-    marginBottom: 10,
   },
 });
 
