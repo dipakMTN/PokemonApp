@@ -1,3 +1,7 @@
 export interface FilterController {
-    handleCancelPressed: () => void
-}
+    types: Array<{ name: string }>;
+    selectedType: string;
+    handleSelectType: (type: string) => void;
+    handleCancelPressed: () => void;
+  }
+  

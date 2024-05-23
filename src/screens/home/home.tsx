@@ -1,13 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 import Header from '../../components/header/header';
 import PokemonList from '../../components/pokemon_list/pokemon_list';
+import { useHomeController } from './home.controller';
+import { styles } from './home.styles';
 
-const HomeScreen = ({navigation}) => {
-
-  const handleFilterPress = () => {
-    navigation.navigate('FilterScreen')
-  };
+const HomeScreen = () => {
+  const { handleFilterPress } = useHomeController();
 
   return (
     <View style={styles.container}>
@@ -20,11 +19,5 @@ const HomeScreen = ({navigation}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default HomeScreen;

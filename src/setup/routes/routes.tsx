@@ -4,23 +4,25 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import HomeScreen from '../../screens/home/home';
 import FilterScreen from '../../screens/filter/filter';
+import {RouteNames} from '../../utils/route_names';
+import {NavigatorParamsList} from '.';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<NavigatorParamsList>();
 
 const Routes: React.FC = () => (
   <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
-        <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="FilterScreen"
-          component={FilterScreen}
-          options={{headerShown: false, presentation: 'modal'}}
-        />
-      </Stack.Navigator>
+    <Stack.Navigator initialRouteName={RouteNames.HomeScreen}>
+      <Stack.Screen
+        name={RouteNames.HomeScreen}
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name={RouteNames.FilterScreen}
+        component={FilterScreen}
+        options={{headerShown: false, presentation: 'modal'}}
+      />
+    </Stack.Navigator>
   </NavigationContainer>
 );
 
