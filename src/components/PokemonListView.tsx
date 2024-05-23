@@ -1,19 +1,22 @@
 import React from 'react';
 import { View, FlatList, Text, StyleSheet } from 'react-native';
 
-const PokemonListView = ({ pokemons }: { pokemons: any[] }) => {
+const PokemonListView = React.memo(({ pokemons, loadMorePokemons }: { pokemons: any[], loadMorePokemons: () => void })  => {
+  console.log("PokemonListView")
   return (
     <FlatList
       data={pokemons}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item, index) => `${item.name}-${index}`}
       renderItem={({ item }) => (
         <View style={styles.pokemonItem}>
           <Text style={styles.pokemonText}>{item.name}</Text>
         </View>
       )}
+      onEndReached={loadMorePokemons}
+      onEndReachedThreshold={0.5}
     />
   );
-};
+});
 
 const styles = StyleSheet.create({
   pokemonItem: {

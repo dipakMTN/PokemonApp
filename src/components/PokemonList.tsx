@@ -1,32 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchPokemons } from '../store/pokemonSlice';
-import { RootState } from '../store/store';
+import React, {useEffect, useState} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+} from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+import {fetchPokemons, setPageOffset} from '../store/pokemonSlice';
+import {RootState} from '../store/store';
 import PokemonListView from './PokemonListView';
 import PokemonGridView from './PokemonGridView';
 
 const PokemonList = () => {
   const dispatch = useDispatch();
-  const { pokemons, loading, error } = useSelector((state: RootState) => state.pokemon);
+  const {pokemons, loading, error, pageOffset} = useSelector(
+    (state: RootState) => state.pokemon,
+  );
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
 
-  const [pageIndex, setPageIndex] = useState<number>(0)
-  const itemsPerPage = 20;
+  const [pageIndex, setPageIndex] = useState<number>(0);
+  const itemsPerPage = 50;
+
+  const loadMorePokemons = () => {
+    dispatch(setPageOffset(pageIndex + 1));
+    setPageIndex(pageIndex + 1);
+  };
 
   useEffect(() => {
-    const params = {itemsPerPage, pageIndex}
-    dispatch(fetchPokemons(params));
-  }, [dispatch]);
+    dispatch(fetchPokemons(itemsPerPage));
+  }, [dispatch, pageOffset]);
 
   useEffect(() => {
+    console.log('Pokemon List size ::: ', pokemons.length)
     setFilteredPokemons(
-      pokemons.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    );
+        pokemons.filter(pokemon =>
+          pokemon.name.toLowerCase().includes(searchQuery.toLowerCase()),
+        ),
+      );
   }, [searchQuery, pokemons]);
 
   if (loading) {
@@ -47,18 +60,30 @@ const PokemonList = () => {
       />
       <View style={styles.viewToggle}>
         <TouchableOpacity onPress={() => setViewMode('list')}>
-          <Text style={viewMode === 'list' ? styles.selected : styles.unselected}>List View</Text>
+          <Text
+            style={viewMode === 'list' ? styles.selected : styles.unselected}>
+            List View
+          </Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => setViewMode('grid')}>
-          <Text style={viewMode === 'grid' ? styles.selected : styles.unselected}>Grid View</Text>
+          <Text
+            style={viewMode === 'grid' ? styles.selected : styles.unselected}>
+            Grid View
+          </Text>
         </TouchableOpacity>
       </View>
       {viewMode === 'list' ? (
-        <PokemonLi
-        stView pokemons={filteredPokemons} />
+        <PokemonListView
+          pokemons={filteredPokemons}
+          loadMorePokemons={loadMorePokemons}
+        />
       ) : (
-        <PokemonGridView pokemons={filteredPokemons} />
+        <PokemonGridView
+          pokemons={filteredPokemons}
+          loadMorePokemons={loadMorePokemons}
+        />
       )}
+      
     </View>
   );
 };

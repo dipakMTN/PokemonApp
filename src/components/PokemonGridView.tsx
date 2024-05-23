@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const PokemonGridView = ({ pokemons }: { pokemons: any[] }) => {
+const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: any[], loadMorePokemons: () => void }) => {
   return (
     <FlatList
       data={pokemons}
@@ -12,6 +12,8 @@ const PokemonGridView = ({ pokemons }: { pokemons: any[] }) => {
           <Text style={styles.pokemonText}>{item.name}</Text>
         </View>
       )}
+      onEndReached={loadMorePokemons}
+      onEndReachedThreshold={0.5}
     />
   );
 };

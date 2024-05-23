@@ -7,6 +7,7 @@ interface PokemonState {
   loading: boolean;
   error: string | null;
   selectedType: string;
+  pageOffset: number,
 }
 
 const initialState: PokemonState = {
@@ -14,16 +15,15 @@ const initialState: PokemonState = {
   types: [],
   loading: false,
   error: null,
-  selectedType: 'all'
+  selectedType: 'all',
+  pageOffset: 0,
 };
 
-export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons', async (params: {
-  itemsPerPage: number,
-  pageIndex: number
-}, { getState }: any) => {
-  const { selectedType } = getState().pokemon;
+export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons', async (itemsPerPage: number, { getState }: any) => {
+  const { selectedType, pageOffset } = getState().pokemon;
+  
   if (selectedType === 'all') {
-    const data = await getPokemons(params.itemsPerPage, params.pageIndex);
+    const data = await getPokemons(itemsPerPage, pageOffset);
     return data.results;
   } else {
     const data = await getPokemonsByType(selectedType);
@@ -42,7 +42,11 @@ const pokemonSlice = createSlice({
   reducers: {
     setSelectedType(state, action) {
       state.selectedType = action.payload;
-    }
+      state.pageOffset = 0;
+    },
+    setPageOffset(state, action) {
+      state.pageOffset = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -51,7 +55,7 @@ const pokemonSlice = createSlice({
       })
       .addCase(fetchPokemons.fulfilled, (state, action) => {
         state.loading = false;
-        state.pokemons = action.payload;
+        state.pokemons = [...state.pokemons, ...action.payload];
       })
       .addCase(fetchPokemons.rejected, (state, action) => {
         state.loading = false;
@@ -63,5 +67,5 @@ const pokemonSlice = createSlice({
   }
 });
 
-export const { setSelectedType } = pokemonSlice.actions;
+export const { setSelectedType, setPageOffset } = pokemonSlice.actions;
 export default pokemonSlice.reducer;
