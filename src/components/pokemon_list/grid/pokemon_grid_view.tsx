@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import { View, FlatList, Text, Image } from 'react-native';
 import { styles } from './pokemon_grid_view.style';
+import Images from '../../../utils/Images';
 
 const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: any[], loadMorePokemons: () => void }) => {
   return (
@@ -10,7 +11,11 @@ const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: any[], load
       keyExtractor={(item, index) => `${item.name}-${index}`}
       renderItem={({ item }) => (
         <View style={styles.pokemonItem}>
-          <Text style={styles.pokemonText}>{item.name}</Text>
+          <Image
+            source={Images.placeholder}
+            style={styles.pokemonPlaceholder}
+          />
+          <Text style={styles.pokemonTitle}>{item.name}</Text>
         </View>
       )}
       onEndReached={loadMorePokemons}

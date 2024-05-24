@@ -1,24 +1,33 @@
 import { StyleSheet } from "react-native";
+import { Colors, FontName, FontSize, ResponsivePixels } from "../../../utils";
 
 export const styles = StyleSheet.create({
   pokemonItem: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: Colors.LightGray,
     flexDirection: 'row',
+    marginHorizontal: ResponsivePixels.size5,
+    marginBottom: ResponsivePixels.size10,
+    padding: ResponsivePixels.size10
+  },
+  textContainer: {
+    flex: 1,
+    flexWrap: 'wrap'
   },
   pokemonTitle: {
-    color: '#000',
-    fontWeight: 'bold',
-    fontSize: 20
+    color: Colors.Black,
+    fontFamily: FontName.poppins_semibold,
+    fontSize: FontSize.fontSize15,
+    textTransform: 'capitalize'
   },
   pokemonText: {
-    color: '#000',
-    marginEnd: 100
+    color: Colors.Black,
+    maxWidth: '100%'
   },
   pokemonPlaceholder: {
-    height: 70,
-    width: 70,
+    height: ResponsivePixels.size50,
+    width: ResponsivePixels.size50,
     resizeMode: 'contain',
-    marginHorizontal: 10
+    marginHorizontal: ResponsivePixels.size10
   },
 });

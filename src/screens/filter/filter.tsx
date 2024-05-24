@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 import Header from '../../components/header/header';
 import {styles} from './filter.styles';
 import {useFilterController} from './filter.controller';

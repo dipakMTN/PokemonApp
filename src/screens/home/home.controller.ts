@@ -1,14 +1,14 @@
-import { useCallback, useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
-import { fetchPokemons, setPageOffset } from '../../store/pokemonSlice';
-import { HomeController } from './home.types';
+import {useCallback, useEffect, useState} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import {useDispatch, useSelector} from 'react-redux';
+import {RootState} from '../../store/store';
+import {fetchPokemons, setPageOffset} from '../../store/pokemonSlice';
+import {HomeController} from './home.types';
 
 export const useHomeController = (): HomeController => {
   const navigation = useNavigation<any>();
   const dispatch = useDispatch();
-  const { pokemons, loading, error, pageOffset } = useSelector(
+  const {pokemons, loading, error, pageOffset} = useSelector(
     (state: RootState) => state.pokemon,
   );
 
@@ -23,8 +23,10 @@ export const useHomeController = (): HomeController => {
   }, [navigation]);
 
   const loadMorePokemons = useCallback(() => {
-    dispatch(setPageOffset(pageIndex + 1));
-    setPageIndex(pageIndex + 1);
+    if (searchQuery !== '') {
+      dispatch(setPageOffset(pageIndex + 1));
+      setPageIndex(pageIndex + 1);
+    }
   }, [dispatch, pageIndex]);
 
   useEffect(() => {
@@ -49,5 +51,6 @@ export const useHomeController = (): HomeController => {
     filteredPokemons,
     loading,
     error,
+    pokemons,
   };
 };

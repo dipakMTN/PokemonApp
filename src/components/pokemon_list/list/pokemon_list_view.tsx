@@ -2,6 +2,7 @@ import React from 'react';
 import {View, FlatList, Text, StyleSheet, Image} from 'react-native';
 import Images from '../../../utils/Images';
 import { styles } from './pokemon_list_view.style';
+import { DUMMY_DESCRIPTION } from '../../../utils';
 
 const PokemonListView = ({
   pokemons,
@@ -20,9 +21,9 @@ const PokemonListView = ({
             source={Images.placeholder}
             style={styles.pokemonPlaceholder}
           />
-          <View>
+          <View style={styles.textContainer}>
             <Text style={styles.pokemonTitle}>{item.name}</Text>
-            <Text style={styles.pokemonText}>{"Pokemon Summary : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}</Text>
+            <Text style={styles.pokemonText} numberOfLines={2} ellipsizeMode="tail">{"Pokemon Summary : " + DUMMY_DESCRIPTION}</Text>
           </View>
         </View>
       )}

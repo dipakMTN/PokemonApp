@@ -1,16 +1,18 @@
 import { StyleSheet } from "react-native";
+import { FontSize } from "../../utils/FontSize";
+import { Colors, FontName, ResponsivePixels } from "../../utils";
 
 export const styles = StyleSheet.create({
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      padding: 16,
-      backgroundColor: '#f8f8f8',
+      padding: ResponsivePixels.size16,
+      backgroundColor: Colors.LightGray,
     },
     title: {
-      fontSize: 24,
-      fontWeight: 'bold',
-      color: '#000',
+      fontSize: FontSize.fontSize30,
+      fontFamily: FontName.poppins_bold,
+      color: Colors.Black,
     },
   });

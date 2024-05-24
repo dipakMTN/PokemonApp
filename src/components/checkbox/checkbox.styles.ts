@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Colors, ResponsivePixels } from "../../utils";
 
 export const styles = StyleSheet.create({
     container: {
@@ -6,19 +7,19 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
     },
     checkbox: {
-      width: 24,
-      height: 24,
+      width: ResponsivePixels.size24,
+      height: ResponsivePixels.size24,
       borderWidth: 1,
-      borderColor: '#007AFF',
+      borderColor: Colors.BiceBlue,
       justifyContent: 'center',
       alignItems: 'center',
-      marginRight: 8,
+      marginRight: ResponsivePixels.size8,
     },
     checked: {
-      backgroundColor: '#007AFF',
+      backgroundColor: Colors.BiceBlue,
     },
     checkmark: {
-      color: '#fff',
-      fontSize: 16,
+      color: Colors.White,
+      fontSize: ResponsivePixels.size16,
     },
   });

@@ -18,6 +18,7 @@ const HomeScreen = () => {
     filteredPokemons,
     loading,
     error,
+    pokemons
   } = useHomeController();
 
   if (loading) {
@@ -58,7 +59,7 @@ const HomeScreen = () => {
         </View>
         {viewMode === 'list' ? (
           <PokemonListView
-            pokemons={filteredPokemons}
+            pokemons={searchQuery !== '' ? filteredPokemons : pokemons}
             loadMorePokemons={loadMorePokemons}
           />
         ) : (

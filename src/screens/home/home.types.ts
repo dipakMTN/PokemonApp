@@ -8,4 +8,5 @@ export interface HomeController {
   filteredPokemons: any[];
   loading: boolean;
   error: string | null;
+  pokemons: any[]
 }

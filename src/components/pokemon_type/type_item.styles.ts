@@ -1,18 +1,22 @@
 import {StyleSheet} from 'react-native';
+import { Colors, FontName, FontSize, ResponsivePixels } from '../../utils';
 
 export const styles = StyleSheet.create({
   typeItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 8,
+    marginVertical: ResponsivePixels.size8,
   },
   selected: {
-    fontWeight: 'bold',
-    color: '#007AFF',
-    paddingVertical: 8,
+    fontFamily: FontName.poppins_semibold,
+    color: Colors.BiceBlue,
+    paddingVertical: ResponsivePixels.size8,
+    fontSize: FontSize.fontSize16
   },
   unselected: {
-    paddingVertical: 8,
-    color: '#000',
+    paddingVertical: ResponsivePixels.size8,
+    color: Colors.Black,
+    fontFamily: FontName.poppins_regular,
+    fontSize: FontSize.fontSize16
   },
 });

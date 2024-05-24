@@ -1,24 +1,25 @@
 import { StyleSheet } from "react-native";
+import { Colors, FontName, ResponsivePixels } from "../../utils";
 
 export const styles = StyleSheet.create({
   searchBar: {
     height: 40,
-    borderColor: '#ccc',
+    borderColor: Colors.SilverGray,
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 8,
-    margin: 10,
+    borderRadius: ResponsivePixels.size8,
+    paddingHorizontal: ResponsivePixels.size8,
+    margin: ResponsivePixels.size10,
   },
   viewToggle: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginVertical: 16,
+    marginVertical: ResponsivePixels.size16,
   },
   selected: {
-    fontWeight: 'bold',
-    color: '#007AFF',
+    fontFamily: FontName.poppins_bold,
+    color: Colors.BiceBlue,
   },
   unselected: {
-    color: '#007AFF',
+    color: Colors.CyanBlue,
   },
 });

@@ -1,22 +1,25 @@
 import { StyleSheet } from "react-native";
+import { Colors, FontName, FontSize, ResponsivePixels } from "../../../utils";
 
 export const styles = StyleSheet.create({
   pokemonItem: {
     flex: 1,
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#f8f8f8',
+    margin: FontSize.fontSize10,
+    padding: FontSize.fontSize10,
+    backgroundColor: Colors.LightGray,
     alignItems: 'center',
   },
   pokemonTitle: {
-    color: '#000',
-    fontWeight: 'bold',
-    fontSize: 20
+    color: Colors.Black,
+    fontFamily: FontName.poppins_bold,
+    fontSize: FontSize.fontSize12,
+    marginTop: ResponsivePixels.size10,
+    textTransform: 'capitalize'
   },
   pokemonPlaceholder: {
-    height: 70,
-    width: 70,
+    height: ResponsivePixels.size50,
+    width: ResponsivePixels.size50,
     resizeMode: 'contain',
-    marginHorizontal: 10
+    marginHorizontal: ResponsivePixels.size10
   },
 });
