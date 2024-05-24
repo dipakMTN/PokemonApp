@@ -1,4 +1,4 @@
-import {KeyboardAvoidingView, Platform, ScrollView, View} from 'react-native';
+import {KeyboardAvoidingView, Platform, View} from 'react-native';
 
 import {memo} from 'react';
 import { ContainerProps } from './container.types';

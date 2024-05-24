@@ -1445,7 +1445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.20.0":
+"@babel/preset-env@npm:^7.24.5":
   version: 7.24.5
   resolution: "@babel/preset-env@npm:7.24.5"
   dependencies:
@@ -3227,7 +3227,7 @@ __metadata:
   resolution: "PokemonApp@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@babel/preset-env": ^7.20.0
+    "@babel/preset-env": ^7.24.5
     "@babel/runtime": ^7.20.0
     "@react-native-community/masked-view": ^0.1.11
     "@react-native/babel-preset": 0.74.83
@@ -3246,7 +3246,7 @@ __metadata:
     "@types/react-redux": ^7.1.33
     "@types/react-test-renderer": ^18.0.0
     axios: ^1.7.2
-    babel-jest: ^29.6.3
+    babel-jest: ^29.7.0
     babel-plugin-module-resolver: ^5.0.2
     eslint: ^8.19.0
     jest: ^29.7.0
@@ -3631,7 +3631,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-jest@npm:^29.6.3, babel-jest@npm:^29.7.0":
+"babel-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "babel-jest@npm:29.7.0"
   dependencies:
@@ -4551,9 +4551,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.668":
-  version: 1.4.781
-  resolution: "electron-to-chromium@npm:1.4.781"
-  checksum: cc2e28ca7fc9c4a4a1591e6f59efae766f7c8e151763a61dad7ad86c78c662a1a8c9d850c56fb9eb5f72ccf8b117e4b5ae7c99af50a0007916b6e0777f62d1c2
+  version: 1.4.782
+  resolution: "electron-to-chromium@npm:1.4.782"
+  checksum: 3f490715895721feff81702b39c684028451f5d43b5cb047f8c52f2abfcb8928c8b84dc08bc3107ff37050e29fae2ccab03e78a8e487998323b3b301bc1ff3a4
   languageName: node
   linkType: hard
 

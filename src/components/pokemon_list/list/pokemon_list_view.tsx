@@ -1,22 +1,27 @@
 import React from 'react';
-import {View, FlatList, Text, Image} from 'react-native';
-import {styles} from './pokemon_list_view.style';
+import { View, FlatList, Text, Image } from 'react-native';
+import { styles } from './pokemon_list_view.style';
 import { Pokemon } from '@/types';
 import Images from '@/utils/Images';
 import { DUMMY_DESCRIPTION } from '@/utils';
 
-const PokemonListView = ({
-  pokemons,
-  loadMorePokemons,
-}: {
-  pokemons: Pokemon[];
-  loadMorePokemons: () => void;
-}) => {
+/**
+ * PokemonListView component that renders a list view of Pokemon items.
+ * 
+ * @component
+ * 
+ * @param {Object} props - The props for the component.
+ * @param {Pokemon[]} props.pokemons - An array of Pokemon objects to render.
+ * @param {() => void} props.loadMorePokemons - Function to call when more Pokemon need to be loaded.
+ * 
+ * @returns {JSX.Element} The rendered PokemonListView component.
+ */
+const PokemonListView = ({ pokemons, loadMorePokemons }: { pokemons: Pokemon[], loadMorePokemons: () => void }) => {
   return (
     <FlatList
       data={pokemons}
       keyExtractor={(item, index) => `${item.name}-${index}`}
-      renderItem={({item}) => (
+      renderItem={({ item }) => (
         <View style={styles.pokemonItem}>
           <Image
             source={Images.placeholder}

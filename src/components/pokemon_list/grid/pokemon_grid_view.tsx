@@ -4,6 +4,18 @@ import { styles } from './pokemon_grid_view.style';
 import Images from '@/utils/Images';
 import { Pokemon } from '@/types';
 
+/**
+ * PokemonGridView component that renders a grid view of Pokemon items.
+ * 
+ * @component
+ * 
+ * @param {Object} props - The props for the component.
+ * @param {Pokemon[]} props.pokemons - An array of Pokemon objects to render.
+ * @param {() => void} props.loadMorePokemons - Function to call when more Pokemon need to be loaded.
+ * 
+ * @returns {JSX.Element} The rendered PokemonGridView component.
+ */
+
 const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: Pokemon[], loadMorePokemons: () => void }) => {
   return (
     <FlatList

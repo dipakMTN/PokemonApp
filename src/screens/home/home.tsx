@@ -24,12 +24,7 @@ const HomeScreen = () => {
     filteredPokemons,
     loading,
     error,
-    pokemons,
   } = useHomeController();
-
-  if (loading) {
-    return <View />;
-  }
 
   if (error) {
     return <Text>Error: {error}</Text>;

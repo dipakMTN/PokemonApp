@@ -2,6 +2,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import CustomCheckbox from '../src/components/checkbox/checkbox';
 
+// Mocking react-native-responsive-fontsize
+jest.mock('react-native-responsive-fontsize', () => ({
+  RFPercentage: jest.fn((val) => val),
+  RFValue: jest.fn((val) => val),
+}));
+
 describe('CustomCheckbox', () => {
   test('renders unchecked checkbox', () => {
     const tree = renderer

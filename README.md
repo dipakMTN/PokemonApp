@@ -1,79 +1,65 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Practical Test
 
-# Getting Started
+This project is a React Native application that implements a user home page for displaying Pokémon data. The application provides features like displaying Pokémon in both column and list views, a search box for filtering Pokémon, and a filter icon that opens a screen to filter Pokémon types.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Requirements
 
-## Step 1: Start the Metro Server
+1. Design and implement the home page using React function components.
+2. Retrieve Pokémon type data from the `/type` endpoint of the PokeAPI and display it in the filter screen.
+3. Add a checkbox called "All" in the filter screen that retrieves all Pokémon data with pagination using the provided Pokémon list API endpoint.
+4. Implement functionality so that clicking different tabs in the left navigation bar displays Pokémon of the corresponding type in the list. Allow users to switch between grid and list views.
+5. Ensure that when switching tabs, any ongoing API calls related to Pokémon data retrieval are aborted to avoid unnecessary overhead.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## API Endpoints
 
-To start Metro, run the following command from the _root_ of your React Native project:
+- Pokémon List (with pagination): [https://pokeapi.co/api/v2/pokemon?limit=20&offset=0](https://pokeapi.co/api/v2/pokemon?limit=20&offset=0)
+- Pokémon Type: [https://pokeapi.co/api/v2/type](https://pokeapi.co/api/v2/type)
+- Pokémon List Based on Type: [https://pokeapi.co/api/v2/type/fire](https://pokeapi.co/api/v2/type/fire)
 
-```bash
-# using npm
+## Expectations
+
+- Use function components exclusively.
+- Implement the code in TypeScript following proper coding conventions.
+- Ensure a user-friendly and responsive design.
+- Utilize RTK or Redux for global state management for data handling.
+- Modularize components to improve code organization and maintainability.
+- Optimize application performance for better user experience.
+- Optional: Write Jest test cases for component-level testing.
+
+## Usage
+
+1. Clone the repository:
+
+git clone <repository_url>
+
+2. Install dependencies:
+
+npm install
+
+3. Run the application:
+
 npm start
 
-# OR using Yarn
-yarn start
-```
+## Technologies Used
 
-## Step 2: Start your Application
+- React Native
+- TypeScript
+- Redux Toolkit (RTK)
+- Jest (for testing)
+- React Navigation
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Folder Structure
 
-### For Android
+|-- src
+|-- components
+|-- navigation
+|-- screens
+|-- store
+|-- utils
+|-- App.tsx
+|-- setup
+|-- ...
 
-```bash
-# using npm
-npm run android
+## License
 
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+This project is licensed under the [MIT License](LICENSE).
