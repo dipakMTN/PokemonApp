@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/home/home';
-import FilterScreen from '../screens/filter/filter';
+import HomeScreen from '@/screens/home/home';
+import FilterScreen from '@/screens/filter/filter';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

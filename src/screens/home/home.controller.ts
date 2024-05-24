@@ -1,13 +1,15 @@
 import {useCallback, useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState} from '../../store/store';
-import {fetchPokemons, setPageOffset} from '../../store/pokemonSlice';
-import {HomeController} from './home.types';
-import { Pokemon } from '../../types';
+import { HomeController } from './home.types';
+import { NavigationProps } from '@/setup/routes';
+import { RootState } from '@/store/store';
+import { Pokemon } from '@/types';
+import { RouteNames } from '@/utils/route_names';
+import { fetchPokemons, setPageOffset } from '@/store/pokemonSlice';
 
 export const useHomeController = (): HomeController => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProps>();
   const dispatch = useDispatch();
   const {pokemons, loading, error, pageOffset} = useSelector(
     (state: RootState) => state.pokemon,
@@ -20,7 +22,7 @@ export const useHomeController = (): HomeController => {
   const ITEMS_PER_PAGE = 50;
 
   const handleFilterPress = useCallback(() => {
-    navigation.navigate('FilterScreen');
+    navigation.navigate(RouteNames.FilterScreen);
   }, [navigation]);
 
   const loadMorePokemons = useCallback(() => {

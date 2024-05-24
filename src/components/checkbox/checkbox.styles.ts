@@ -1,5 +1,5 @@
+import { Colors, ResponsivePixels } from "@/utils";
 import { StyleSheet } from "react-native";
-import { Colors, ResponsivePixels } from "../../utils";
 
 export const styles = StyleSheet.create({
     container: {

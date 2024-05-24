@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import CustomCheckbox from '../../components/checkbox/checkbox';
+import CustomCheckbox from '@/components/checkbox/checkbox';
 import { styles } from './type_item.styles';
 
 interface TypeItemProps {

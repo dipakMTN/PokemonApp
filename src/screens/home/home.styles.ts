@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import { Colors, FontName, FontSize, ResponsivePixels } from '../../utils';
+import { Colors, FontName, FontSize, ResponsivePixels } from '@/utils';
 
 export const styles = StyleSheet.create({
   searchBar: {

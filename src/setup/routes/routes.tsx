@@ -2,10 +2,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import React from 'react';
-import HomeScreen from '../../screens/home/home';
-import FilterScreen from '../../screens/filter/filter';
-import {RouteNames} from '../../utils/route_names';
 import {NavigatorParamsList} from '.';
+import { RouteNames } from '@/utils/route_names';
+import HomeScreen from '@/screens/home/home';
+import FilterScreen from '@/screens/filter/filter';
 
 const Stack = createStackNavigator<NavigatorParamsList>();
 

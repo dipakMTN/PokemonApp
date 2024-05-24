@@ -1,6 +1,5 @@
+import { Colors, FontName, FontSize, ResponsivePixels } from "@/utils";
 import { StyleSheet } from "react-native";
-import { FontSize } from "../../utils/FontSize";
-import { Colors, FontName, ResponsivePixels } from "../../utils";
 
 export const styles = StyleSheet.create({
     header: {

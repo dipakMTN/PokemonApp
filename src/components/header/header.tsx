@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { styles } from './header.styles';
 import HeaderProps from './header.types';
-import { Colors, FontSize } from '../../utils';
+import { Colors, FontSize } from '@/utils';
 
 const Header = ({ title, iconSymbol, onIconPress } : HeaderProps) => {
   return (

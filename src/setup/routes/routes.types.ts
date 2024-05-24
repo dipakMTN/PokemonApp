@@ -1,5 +1,5 @@
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RouteNames } from "../../utils/route_names";
+import { RouteNames } from "@/utils/route_names";
 import { RouteProp } from "@react-navigation/native";
 
 export type NavigatorParamsList = {

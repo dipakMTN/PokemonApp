@@ -1,6 +1,6 @@
+import { Pokemon, PokemonType } from '@/types';
+import { getPokemonTypes, getPokemons, getPokemonsByType } from '@/utils/api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getPokemons, getPokemonTypes, getPokemonsByType } from '../utils/api';
-import { Pokemon, PokemonType } from '../types';
 
 interface PokemonState {
   pokemons: Pokemon[];
@@ -22,7 +22,7 @@ const initialState: PokemonState = {
 
 export const fetchPokemons = createAsyncThunk('pokemon/fetchPokemons', async (itemsPerPage: number, { getState }: any) => {
   const { selectedType, pageOffset } = getState().pokemon;
-  
+
   if (selectedType === 'all') {
     const data = await getPokemons(itemsPerPage, pageOffset);
     return data.results;
@@ -44,6 +44,7 @@ const pokemonSlice = createSlice({
     setSelectedType(state, action) {
       state.selectedType = action.payload;
       state.pageOffset = 0;
+      state.pokemons = []
     },
     setPageOffset(state, action) {
       state.pageOffset = action.payload;

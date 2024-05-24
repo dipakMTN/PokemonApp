@@ -1,3 +1,3 @@
 export default {
-    placeholder: require('./../assets/images/placeholder.png')
+    placeholder: require('@/assets/images/placeholder.png')
 }

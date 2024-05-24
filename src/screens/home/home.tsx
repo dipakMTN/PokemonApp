@@ -6,12 +6,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import Header from '../../components/header/header';
 import {useHomeController} from './home.controller';
 import {styles} from './home.styles';
-import PokemonListView from '../../components/pokemon_list/list/pokemon_list_view';
-import PokemonGridView from '../../components/pokemon_list/grid/pokemon_grid_view';
-import Container from '../../hoc/container';
+import PokemonListView from '@/components/pokemon_list/list/pokemon_list_view';
+import Container from '@/hoc/container';
+import Header from '@/components/header/header';
+import PokemonGridView from '@/components/pokemon_list/grid/pokemon_grid_view';
 
 const HomeScreen = () => {
   const {
@@ -68,7 +68,7 @@ const HomeScreen = () => {
         {error && <Text style={styles.errorText}>{error}</Text>}
         {viewMode === 'list' ? (
           <PokemonListView
-            pokemons={pokemons}
+            pokemons={filteredPokemons}
             loadMorePokemons={loadMorePokemons}
           />
         ) : (

@@ -1,9 +1,9 @@
 import React from 'react';
 import {View, FlatList, Text, Image} from 'react-native';
-import Images from '../../../utils/Images';
 import {styles} from './pokemon_list_view.style';
-import {DUMMY_DESCRIPTION, ResponsivePixels} from '../../../utils';
-import { Pokemon } from '../pokemon_list.types';
+import { Pokemon } from '@/types';
+import Images from '@/utils/Images';
+import { DUMMY_DESCRIPTION } from '@/utils';
 
 const PokemonListView = ({
   pokemons,
