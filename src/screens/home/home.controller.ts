@@ -4,9 +4,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../store/store';
 import {fetchPokemons, setPageOffset} from '../../store/pokemonSlice';
 import {HomeController} from './home.types';
+import { Pokemon } from '../../types';
 
 export const useHomeController = (): HomeController => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const {pokemons, loading, error, pageOffset} = useSelector(
     (state: RootState) => state.pokemon,
@@ -14,7 +15,7 @@ export const useHomeController = (): HomeController => {
 
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('list');
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
+  const [filteredPokemons, setFilteredPokemons] = useState<Pokemon[]>(pokemons);
   const [pageIndex, setPageIndex] = useState<number>(0);
   const ITEMS_PER_PAGE = 50;
 
@@ -23,7 +24,7 @@ export const useHomeController = (): HomeController => {
   }, [navigation]);
 
   const loadMorePokemons = useCallback(() => {
-    if (searchQuery !== '') {
+    if (searchQuery === '') {
       dispatch(setPageOffset(pageIndex + 1));
       setPageIndex(pageIndex + 1);
     }

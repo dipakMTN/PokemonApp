@@ -1,14 +1,15 @@
 import React from 'react';
-import {View, FlatList, Text, StyleSheet, Image} from 'react-native';
+import {View, FlatList, Text, Image} from 'react-native';
 import Images from '../../../utils/Images';
-import { styles } from './pokemon_list_view.style';
-import { DUMMY_DESCRIPTION } from '../../../utils';
+import {styles} from './pokemon_list_view.style';
+import {DUMMY_DESCRIPTION, ResponsivePixels} from '../../../utils';
+import { Pokemon } from '../pokemon_list.types';
 
 const PokemonListView = ({
   pokemons,
   loadMorePokemons,
 }: {
-  pokemons: any[];
+  pokemons: Pokemon[];
   loadMorePokemons: () => void;
 }) => {
   return (
@@ -23,7 +24,12 @@ const PokemonListView = ({
           />
           <View style={styles.textContainer}>
             <Text style={styles.pokemonTitle}>{item.name}</Text>
-            <Text style={styles.pokemonText} numberOfLines={2} ellipsizeMode="tail">{"Pokemon Summary : " + DUMMY_DESCRIPTION}</Text>
+            <Text
+              style={styles.pokemonText}
+              numberOfLines={2}
+              ellipsizeMode="tail">
+              {'Pokemon Summary : ' + DUMMY_DESCRIPTION}
+            </Text>
           </View>
         </View>
       )}

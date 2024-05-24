@@ -26,4 +26,8 @@ export const styles = StyleSheet.create({
     fontFamily: FontName.poppins_semibold,
     fontSize: FontSize.fontSize16,
   },
+  errorText: {
+    fontFamily: FontName.poppins_bold,
+    color: Colors.Red,
+  },
 });

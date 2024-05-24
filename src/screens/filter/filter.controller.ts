@@ -7,7 +7,7 @@ import { FilterController } from './filter.types';
 
 export const useFilterController = (): FilterController => {
   const dispatch = useDispatch();
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation();
 
   const { types, selectedType } = useSelector((state: RootState) => state.pokemon);
   const ITEMS_PER_PAGE = 50;

@@ -1,5 +1,11 @@
 import React from 'react';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import Header from '../../components/header/header';
 import {useHomeController} from './home.controller';
 import {styles} from './home.styles';
@@ -18,11 +24,11 @@ const HomeScreen = () => {
     filteredPokemons,
     loading,
     error,
-    pokemons
+    pokemons,
   } = useHomeController();
 
   if (loading) {
-    return <Text>Loading...</Text>;
+    return <View />;
   }
 
   if (error) {
@@ -57,9 +63,12 @@ const HomeScreen = () => {
             </Text>
           </TouchableOpacity>
         </View>
+        {loading && <ActivityIndicator size={'large'} />}
+
+        {error && <Text style={styles.errorText}>{error}</Text>}
         {viewMode === 'list' ? (
           <PokemonListView
-            pokemons={searchQuery !== '' ? filteredPokemons : pokemons}
+            pokemons={pokemons}
             loadMorePokemons={loadMorePokemons}
           />
         ) : (
@@ -71,6 +80,6 @@ const HomeScreen = () => {
       </View>
     </Container>
   );
-}; 
+};
 
 export default HomeScreen;

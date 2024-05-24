@@ -1,10 +1,9 @@
 export interface Pokemon {
-    name: string;
-    url: string;
-  }
-  
-  export interface PokemonType {
-    name: string;
-    url: string;
-  }
-  
+  name: string;
+  url: string;
+}
+
+export interface PokemonType {
+  name: string;
+  url: string;
+}

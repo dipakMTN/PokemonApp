@@ -2,8 +2,9 @@ import React from 'react';
 import { View, FlatList, Text, Image } from 'react-native';
 import { styles } from './pokemon_grid_view.style';
 import Images from '../../../utils/Images';
+import { Pokemon } from '../../../types';
 
-const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: any[], loadMorePokemons: () => void }) => {
+const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: Pokemon[], loadMorePokemons: () => void }) => {
   return (
     <FlatList
       data={pokemons}

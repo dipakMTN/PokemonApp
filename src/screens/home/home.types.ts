@@ -1,3 +1,5 @@
+import { Pokemon } from "../../types";
+
 export interface HomeController {
   handleFilterPress: () => void;
   loadMorePokemons: () => void;
@@ -5,8 +7,8 @@ export interface HomeController {
   setViewMode: (view: 'grid' | 'list') => void;
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  filteredPokemons: any[];
+  filteredPokemons: Pokemon[];
   loading: boolean;
   error: string | null;
-  pokemons: any[]
+  pokemons: Pokemon[]
 }

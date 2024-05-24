@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getPokemons, getPokemonTypes, getPokemonsByType } from '../utils/api';
+import { Pokemon, PokemonType } from '../types';
 
 interface PokemonState {
-  pokemons: any[];
-  types: any[];
+  pokemons: Pokemon[];
+  types: PokemonType[];
   loading: boolean;
   error: string | null;
   selectedType: string;
