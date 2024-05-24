@@ -1,4 +1,4 @@
-# React Native Practical Test
+# Pokemon App - Practical
 
 This project is a React Native application that implements a user home page for displaying Pokémon data. The application provides features like displaying Pokémon in both column and list views, a search box for filtering Pokémon, and a filter icon that opens a screen to filter Pokémon types.
 
@@ -59,18 +59,16 @@ npm start
 ```
 |-- src
     |-- components
+    |-- hoc
     |-- navigation
     |-- screens
+    |-- setup
     |-- store
+    |-- types
     |-- utils
 |-- App.tsx
-|-- setup
 |-- ...
 ```
-
-## Credits
-
-This project is created by [Your Name].
 
 ## License
 
