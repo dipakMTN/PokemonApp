@@ -7,7 +7,7 @@ const PokemonGridView = ({ pokemons, loadMorePokemons }: { pokemons: any[], load
     <FlatList
       data={pokemons}
       numColumns={2}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item, index) => `${item.name}-${index}`}
       renderItem={({ item }) => (
         <View style={styles.pokemonItem}>
           <Text style={styles.pokemonText}>{item.name}</Text>

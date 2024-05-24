@@ -4,13 +4,14 @@ import Header from '../../components/header/header';
 import {styles} from './filter.styles';
 import {useFilterController} from './filter.controller';
 import TypeItem from '../../components/pokemon_type/type_item';
+import Container from '../../hoc/container';
 
 const FilterScreen = () => {
   const {types, selectedType, handleSelectType, handleCancelPressed} =
     useFilterController();
 
   return (
-    <View style={styles.container}>
+    <Container>
       <Header
         title="Filter By Type"
         iconSymbol="close"
@@ -35,7 +36,7 @@ const FilterScreen = () => {
           />
         }
       />
-    </View>
+    </Container>
   );
 };
 

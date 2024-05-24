@@ -8,7 +8,15 @@ export const styles = StyleSheet.create({
     backgroundColor: '#f8f8f8',
     alignItems: 'center',
   },
-  pokemonText: {
+  pokemonTitle: {
     color: '#000',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
+  pokemonPlaceholder: {
+    height: 70,
+    width: 70,
+    resizeMode: 'contain',
+    marginHorizontal: 10
   },
 });

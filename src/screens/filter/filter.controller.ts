@@ -10,6 +10,7 @@ export const useFilterController = (): FilterController => {
   const navigation = useNavigation<any>();
 
   const { types, selectedType } = useSelector((state: RootState) => state.pokemon);
+  const ITEMS_PER_PAGE = 50;
 
   useEffect(() => {
     dispatch(fetchTypes());
@@ -17,7 +18,7 @@ export const useFilterController = (): FilterController => {
 
   const handleSelectType = useCallback((type: string) => {
     dispatch(setSelectedType(type));
-    dispatch(fetchPokemons());
+    dispatch(fetchPokemons(ITEMS_PER_PAGE));
   }, [dispatch]);
 
   const handleCancelPressed = useCallback(() => {

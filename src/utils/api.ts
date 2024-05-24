@@ -6,6 +6,7 @@ export const getPokemons = async (itemsPerPage: number,  pageIndex: number) => {
   const response = await axios.get(`${API_URL}/pokemon`, {
     params: { limit: itemsPerPage, offset: pageIndex }
   });
+  console.log("Response", response)
   return response.data;
 };
 

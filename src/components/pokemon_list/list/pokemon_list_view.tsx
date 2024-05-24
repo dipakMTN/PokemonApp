@@ -1,34 +1,35 @@
 import React from 'react';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import {View, FlatList, Text, StyleSheet, Image} from 'react-native';
+import Images from '../../../utils/Images';
+import { styles } from './pokemon_list_view.style';
 
-const PokemonListView = React.memo(({ pokemons, loadMorePokemons }: { pokemons: any[], loadMorePokemons: () => void })  => {
-  console.log("PokemonListView")
+const PokemonListView = ({
+  pokemons,
+  loadMorePokemons,
+}: {
+  pokemons: any[];
+  loadMorePokemons: () => void;
+}) => {
   return (
     <FlatList
       data={pokemons}
       keyExtractor={(item, index) => `${item.name}-${index}`}
-      renderItem={({ item }) => (
+      renderItem={({item}) => (
         <View style={styles.pokemonItem}>
-          <Text style={styles.pokemonText}>{item.name}</Text>
+          <Image
+            source={Images.placeholder}
+            style={styles.pokemonPlaceholder}
+          />
+          <View>
+            <Text style={styles.pokemonTitle}>{item.name}</Text>
+            <Text style={styles.pokemonText}>{"Pokemon Summary : Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."}</Text>
+          </View>
         </View>
       )}
       onEndReached={loadMorePokemons}
       onEndReachedThreshold={0.5}
     />
   );
-});
-
-const styles = StyleSheet.create({
-  pokemonItem: {
-    flex: 1,
-    margin: 10,
-    padding: 10,
-    backgroundColor: '#f8f8f8',
-    alignItems: 'center',
-  },
-  pokemonText: {
-    color: '#000',
-  },
-});
+};
 
 export default PokemonListView;
