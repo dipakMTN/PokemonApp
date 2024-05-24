@@ -30,15 +30,21 @@ This project is a React Native application that implements a user home page for 
 
 1. Clone the repository:
 
+```
 git clone <repository_url>
+```
 
 2. Install dependencies:
 
+```
 npm install
+```
 
 3. Run the application:
 
+```
 npm start
+```
 
 ## Technologies Used
 
@@ -50,15 +56,21 @@ npm start
 
 ## Folder Structure
 
+```
 |-- src
-|-- components
-|-- navigation
-|-- screens
-|-- store
-|-- utils
+    |-- components
+    |-- navigation
+    |-- screens
+    |-- store
+    |-- utils
 |-- App.tsx
 |-- setup
 |-- ...
+```
+
+## Credits
+
+This project is created by [Your Name].
 
 ## License
 
